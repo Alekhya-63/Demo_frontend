@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding:0;
+}
+
+body{
+  background-color: #f3f2ef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header_left img {
+  object-fit: contain;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.header_search img {
+  margin-right: 5px;
+  height: 20px;
+  width: 20px;
+
+}
+.header{
+  width: 100%;
+  position: sticky;
+  display: flex;
+  top: 0;
+  z-index: 999;
+  justify-content: space-evenly;
+  border-bottom: 0.1px solid lightgray;
+  padding: 10px;
+  background-color: white;
+}
+
+.header_left{
+  display: flex;
+}
+
+.header_right{
+  display: flex;
+}
+
+.header_search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 22px;
+  color: gray;
+  background-color: #eef3f8;
+}
+
+.header_search input{
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.headerOption  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.headerOption:hover {
+  color: black;
+}
+
+.headerOption h3 {
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.headerOption img{
+  margin-right: 5px;
+  height: 20px;
+  width: 20px;
+}

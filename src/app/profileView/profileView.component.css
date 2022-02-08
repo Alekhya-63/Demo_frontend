@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.completeView{
+  margin-top: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+  border: 0.1px solid lightgray;
+  background-color: white;
+  border-radius: 10px;
+  height: 300px;
+
+}
+
+.profiletop img{
+
+
+  width: 150px;
+  height: 150px;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  margin: 20px 55px;
+  cursor: pointer;
+}
+
+.headLine h2{
+  margin: 60px, 60px;
+
+}

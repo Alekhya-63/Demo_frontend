@@ -1,0 +1,10 @@
+.jobs{
+  margin-top: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+  border: 0.1px solid lightgray;
+  background-color: white;
+  border-radius: 10px;
+  height: 300px;
+
+}
