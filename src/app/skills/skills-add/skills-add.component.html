@@ -1,1 +1,66 @@
-<p>skills-add works!</p>
+
+
+<!--<div class="row">-->
+<!--  <div class="col-xs-12">-->
+<!--    <div class="container">-->
+<!--      <div class="pull-right">-->
+<!--        <button type="submit">-->
+<!--          <img src="	https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_17-512.png"-->
+<!--               class="img-responsive" id="addS">-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    <form (ngSubmit)="onAddskill()" #formSkill="ngForm">-->
+<!--         <div class="form-group">-->
+<!--           <label>Skill :</label>-->
+<!--           <input type="text" id="name" class="form-control" name="name" ngModel>-->
+<!--         </div>-->
+
+
+<!--      </form>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="row formCss">
+  <div class="col-xs-12">
+    <h3 style="margin-left: 40%">
+      Add new skill
+    </h3>
+    <div class="container" style="max-width: 600px; max-height: 600px; background-color: white;">
+      <form [formGroup]="formSkill" (ngSubmit)="onAddskill()">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="skillName" >Skill Name</label>
+              <input
+                type="text" id="skillName"
+                formControlName="skillName"
+                class="form-control"
+                name="skillName">
+              <span
+                *ngIf="!formSkill.get('skillName').valid && formSkill.get('skillName').touched"
+                class="help-block">Please enter valid skill name!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="wrap">
+              <button
+                type="submit"
+                class="btn btn-default"
+                [disabled]="!formSkill.valid" style="margin-right: 5%">Add Skill</button>
+              <button type="submit"
+                      class="btn btn-default" style="margin: 5px;"  (click)="goBack()">
+                Go back
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

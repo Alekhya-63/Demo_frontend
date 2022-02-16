@@ -1,35 +1,34 @@
 
-<div class="loginpage" style="min-width: 100%;min-height: 600%;">
+
+<div class="row backgroundimg" >
+  <br> <br><br>
   <br>
   <br>
-  <br>
-  <h2 class="text-primary" style="margin-left: 45%" > Linked
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="">
-  </h2>
-  <h2 style="margin-left: 30%">Make the most of your professional life</h2>
-  <br>
-  <br>
-  <br>
-  <div class="container" class="container" style="max-width: 600px; max-height: 600px; background-color: white;">
-  <h2>Login/Create</h2>
-  <form #formlogin="ngForm" (ngSubmit)="userLogin()">
-    <small class="text-danger">{{msg}}</small>
-    <div class="form-group">
-      <label >Email:</label>
-      <input type="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="user.emailId"  #email="ngModel"
-      [class.is-invalid]="email.invalid && email.touched"
-      >
-    </div>
-    <div class="form-group">
-      <label >Password:</label>
-      <input type="password" class="form-control" placeholder="Enter password" name="pwd" [(ngModel)]="user.password" required>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Remember me</label>
-    </div>
-    <button [disabled]="formlogin.form.invalid" type="submit" class="btn btn-primary">Login</button>
-  </form>
-  <button class="btn btn-primary" style="margin-left: 80%"  [routerLink]="['/registration']">Create Account</button>
+
+
+  <div class="container"  style="max-width: 600px; max-height: 600px; background-color: white;">
+    <h2>Login/Create</h2>
+    <form #formlogin="ngForm" (ngSubmit)="userLogin()">
+      <small class="text-danger">{{msg}}</small>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="user.emailId"  ngModel required #email="ngModel">
+        <small class="form-text text-muted" *ngIf="email.touched && !email.valid">Please enter your email address</small>
+      </div>
+      <div class="form-group">
+        <label for = "password">Password:</label>
+        <input type="password" id="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password" ngModel required #password="ngModel">
+        <small class="form-text text-muted" *ngIf="password.touched && !password.valid">Please enter password</small>
+
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+      <button [disabled]="formlogin.form.invalid" type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <button class="btn btn-primary" style="margin-left: 80%"  [routerLink]="['/registration']">Create Account</button>
     <hr>
+  </div>
 </div>
-</div>
+
+

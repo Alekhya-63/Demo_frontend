@@ -1,10 +1,39 @@
-<div class="skill">
-  <h1 class="text-primary" style="margin-left: 15px;"> Skills </h1>
 
-  <p  style="margin-left: 15px;"> C programming </p>
-  <p  style="margin-left: 15px;"> C++ </p>
-  <p  style="margin-left: 15px;"> Java </p>
-  <p  style="margin-left: 15px;"> HTML5 </p>
-  <p  style="margin-left: 15px;"> CSS </p>
-  <p  style="margin-left: 15px;"> Type script </p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="container" style="border: 1px solid black;
+   width: 900px;
+  margin-top: 30px;
+  margin-left: 170px;
+  background-color: white;
+border-radius: 10px;" >
+
+      <div class="pull-left">
+
+        <h2 style="font-weight: bold;">Skills</h2>
+      </div>
+      <div class="pull-right">
+        <br>
+        <button type="submit" (click)="createNew()">
+          <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_17-512.png"
+               class="img-responsive" id="addS">
+        </button>
+
+      </div>
+
+      <br><br><br><br>
+      <ul class="list-group" >
+        <li class="list-group-item" *ngFor="let skillsAdd of skill; let i = index">
+          <button class="pull-right" (click)="deleteSkill(skillsAdd.skillId)">
+            <img src="https://thumbs.dreamstime.com/b/delete-glyph-vector-line-icon-delete-icon-102291534.jpg"
+                 class="img-responsive" id="addS">
+          </button>
+          {{skillsAdd.skill}}
+
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
 </div>

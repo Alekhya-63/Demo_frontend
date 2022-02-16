@@ -1,9 +1,9 @@
-export class User {
-  id: number;
-  emailId: string;
-  password: string;
+export class Skills {
+  skillId: number;
+  skill: string;
 
-  constructor(){
+  constructor(skill : string){
 
+    this.skill=skill;
   }
 }

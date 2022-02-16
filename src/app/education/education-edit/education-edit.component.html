@@ -1,1 +1,106 @@
-<p>education-edit works!</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3 style="margin-left: 40%; color: black; font-weight: bolder;">
+      Edit education details
+    </h3>
+    <div class="container" style="max-width: 500px; border-radius: 10px; padding: 25px; background-color: white;">
+      <form [formGroup]="formEditEdu" (ngSubmit)="onEditEdu()">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="eduName" >School </label>
+              <input
+                type="text" id="eduName"
+                formControlName="eduName"
+                class="form-control"
+                name="eduName">
+              <span
+                *ngIf="!formEditEdu.get('eduName').valid && formEditEdu.get('eduName').touched"
+                class="help-block">Please enter school name!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="eduDegree" >Degree </label>
+              <input
+                type="text" id="eduDegree"
+                formControlName="eduDegree"
+                class="form-control"
+                name="eduDegree">
+              <span
+                *ngIf="!formEditEdu.get('eduDegree').valid && formEditEdu.get('eduDegree').touched"
+                class="help-block">Please enter type of degree!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="eduField" >Field of study</label>
+              <input
+                type="text" id="eduField"
+                formControlName="eduField"
+                class="form-control"
+                name="eduField">
+              <span
+                *ngIf="!formEditEdu.get('eduField').valid && formEditEdu.get('eduField').touched"
+                class="help-block">Please enter field of study!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="eduStart" >Start date</label>
+              <input
+                type="date" id="eduStart"
+                formControlName="eduStart"
+                class="form-control"
+                name="eduStart">
+              <span
+                *ngIf="!formEditEdu.get('eduStart').valid && formEditEdu.get('eduStart').touched"
+                class="help-block">Please enter starting date of study!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="eduStop" >End date</label>
+              <input
+                type="date" id="eduStop"
+                formControlName="eduStop"
+                class="form-control"
+                name="eduStop">
+              <span
+                *ngIf="!formEditEdu.get('eduStop').valid && formEditEdu.get('eduStop').touched"
+                class="help-block">Please enter ending date of study!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="eduGrade" >Description (or grade)</label>
+              <input
+                type="text" id="eduGrade"
+                formControlName="eduGrade"
+                class="form-control"
+                name="eduGrade">
+              <span
+                *ngIf="!formEditEdu.get('eduGrade').valid && formEditEdu.get('eduGrade').touched"
+                class="help-block">Describe here!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="wrap">
+              <button
+                type="submit"
+                class="btn btn-default"
+                [disabled]="!formEditEdu.valid" style="margin-right: 5%">Edit Edu</button>
+              <button type="submit"
+                      class="btn btn-default" style="margin: 5px;"  (click)="goBack()">
+                Go back
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+

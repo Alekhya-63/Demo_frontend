@@ -3,3 +3,27 @@
   height: 30px;
   margin-left: 0px;
 }
+
+.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.error-block {
+  color: red;
+}
+
+.backgroundimg {
+  background-image: url("https://media.istockphoto.com/photos/social-networ…=0&h=BFuLDYujjZzpTzIX49MllgDXdw6sp0jSDJX5wLQw0iI=");
+  background-size: cover;
+  background-position: center;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.form-text text-muted
+{
+  color: red;
+}
+

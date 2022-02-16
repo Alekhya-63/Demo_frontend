@@ -1,11 +1,46 @@
-<div class="jobs">
-  <h1 class="text-primary" style="margin-left: 15px;"> Experience </h1>
 
-  <div>
-    <h4 style="margin-left: 30px">
-      Software Engineer Intern
-    </h4>
-   <p style="margin-left: 15px">Kodem Legal Technologies. Internship</p>
-    <p style="margin-left: 35px">Feb 2022 - Present. 1 month</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="container" style="border: 1px solid black;
+   width: 900px;
+  margin-top: 30px;
+  margin-left: 170px;
+  background-color: white;
+border-radius: 10px;" >
+
+      <div class="pull-left">
+
+        <h2 style="font-weight: bold;">Experience</h2>
+      </div>
+      <div class="pull-right">
+        <br>
+        <button type="submit" (click)="createExp()">
+          <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_17-512.png"
+               class="img-responsive" id="addS">
+        </button>
+
+      </div>
+
+      <br><br><br><br>
+        <ul class="list-group" >
+          <li class="list-group-item" *ngFor="let exp of experience; let i = index">
+            <button class="pull-right" (click)="deleteExp(exp.expId)">
+              <img src="https://thumbs.dreamstime.com/b/delete-glyph-vector-line-icon-delete-icon-102291534.jpg"
+                   class="img-responsive" id="addS">
+            </button>
+            <button type="submit" class="pull-right" (click)="updateExp(exp.expId)">
+              <img src="https://i.pinimg.com/564x/e4/47/e4/e447e462eff03304a902f15681754441.jpg"
+                   class="img-responsive" id="addS">
+            </button>
+              <h3> {{exp.companyName}}</h3>
+            <h4>{{exp.role}}</h4>
+            <h5>{{exp.empType}}</h5>
+            <h6>{{exp.startDate}} - {{exp.stopDate}}</h6>
+            <p style="font-style: italic; ">{{exp.description}}</p>
+          </li>
+        </ul>
+
+    </div>
+
   </div>
 </div>

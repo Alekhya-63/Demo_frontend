@@ -1,1 +1,106 @@
-<p>experience-edit works!</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3 style="margin-left: 40%; color: black; font-weight: bolder;">
+      Edit Experience details
+    </h3>
+    <div class="container" style="max-width: 500px; border-radius: 10px; padding: 25px; background-color: white;">
+      <form [formGroup]="formEditExp" (ngSubmit)="onEditExp()">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="expName" >Company name </label>
+              <input
+                type="text" id="expName"
+                formControlName="expName"
+                class="form-control"
+                name="expName">
+              <span
+                *ngIf="!formEditExp.get('expName').valid && formEditExp.get('expName').touched"
+                class="help-block">Please enter company name!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="expRole" >Role </label>
+              <input
+                type="text" id="expRole"
+                formControlName="expRole"
+                class="form-control"
+                name="expRole">
+              <span
+                *ngIf="!formEditExp.get('expRole').valid && formEditExp.get('expRole').touched"
+                class="help-block">Please enter your role in company name!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="expType" >Employment type</label>
+              <input
+                type="text" id="expType"
+                formControlName="expType"
+                class="form-control"
+                name="expType">
+              <span
+                *ngIf="!formEditExp.get('expType').valid && formEditExp.get('expType').touched"
+                class="help-block">Please enter employee type!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="expStart" >Start date</label>
+              <input
+                type="date" id="expStart"
+                formControlName="expStart"
+                class="form-control"
+                name="expStart">
+              <span
+                *ngIf="!formEditExp.get('expStart').valid && formEditExp.get('expStart').touched"
+                class="help-block">Please enter starting date of employment!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="expStop" >End date</label>
+              <input
+                type="date" id="expStop"
+                formControlName="expStop"
+                class="form-control"
+                name="expStop">
+              <span
+                *ngIf="!formEditExp.get('expStop').valid && formEditExp.get('expStop').touched"
+                class="help-block">Please enter ending date of employment!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="expDes" >Description</label>
+              <input
+                type="text" id="expDes"
+                formControlName="expDes"
+                class="form-control"
+                name="expDes">
+              <span
+                *ngIf="!formEditExp.get('expDes').valid && formEditExp.get('expDes').touched"
+                class="help-block">Describe your experience at company!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="wrap">
+              <button
+                type="submit"
+                class="btn btn-default"
+                [disabled]="!formEditExp.valid" style="margin-right: 5%">Edit Exp</button>
+              <button type="submit"
+                      class="btn btn-default" style="margin: 5px;"  (click)="goBack()">
+                Go back
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+

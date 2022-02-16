@@ -1,1 +1,82 @@
-<p>profile-edit works!</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3 style="margin-left: 40%; color: black; font-weight: bolder;">
+       Edit your profile details
+    </h3>
+    <div class="container" style="max-width: 500px; border-radius: 10px; padding: 25px; background-color: white;">
+      <form [formGroup]="formEditProfile" (ngSubmit)="onEditProfile()">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="profileName" >Name  </label>
+              <input
+                type="text" id="profileName"
+                formControlName="profileName"
+                class="form-control"
+                name="profileName">
+              <span
+                *ngIf="!formEditProfile.get('profileName').valid && formEditProfile.get('profileName').touched"
+                class="help-block">Please enter profile name!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="profileTitle" >Heading  </label>
+              <input
+                type="text" id="profileTitle"
+                formControlName="profileTitle"
+                class="form-control"
+                name="profileTitle">
+              <span
+                *ngIf="!formEditProfile.get('profileTitle').valid && formEditProfile.get('profileTitle').touched"
+                class="help-block">Please enter profile heading!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="profileAbout" >About  </label>
+              <input
+                type="text" id="profileAbout"
+                formControlName="profileAbout"
+                class="form-control"
+                name="profileAbout">
+              <span
+                *ngIf="!formEditProfile.get('profileAbout').valid && formEditProfile.get('profileAbout').touched"
+                class="help-block">Describe yourself here!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="profileLocation" >Location </label>
+              <input
+                type="text" id="profileLocation"
+                formControlName="profileLocation"
+                class="form-control"
+                name="profileLocation">
+              <span
+                *ngIf="!formEditProfile.get('profileLocation').valid && formEditProfile.get('profileLocation').touched"
+                class="help-block">Enter location details!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="wrap">
+              <button
+                type="submit"
+                class="btn btn-default"
+                [disabled]="!formEditProfile.valid" style="margin-right: 5%">Edit Profile</button>
+              <button type="submit"
+                      class="btn btn-default" style="margin: 5px;"  (click)="goBack()">
+                Go back
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+

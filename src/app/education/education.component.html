@@ -1,12 +1,46 @@
-<div class="study">
 
-  <h1 class="text-primary" style="margin-left: 15px;"> Education </h1>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="container" style="border: 1px solid black;
+   width: 900px;
+  margin-top: 30px;
+  margin-left: 170px;
+  background-color: white;
+border-radius: 10px;" >
 
-  <div>
-    <h4 style="margin-left: 30px">
-      Vasavi College of Engineering
-    </h4>
-    <p style="margin-left: 15px">Bachelor of Engineering, Electronics and Communications Engineering</p>
-    <p style="margin-left: 35px">2018 - 2022</p>
+      <div class="pull-left">
+
+        <h2 style="font-weight: bold;">Education</h2>
+      </div>
+      <div class="pull-right">
+        <br>
+        <button type="submit" (click)="createEdu()">
+          <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_17-512.png"
+               class="img-responsive" id="addS">
+        </button>
+
+      </div>
+
+      <br><br><br><br>
+      <ul class="list-group" >
+        <li class="list-group-item" *ngFor="let edu1 of edu; let i = index">
+          <button class="pull-right" (click)="deleteEdu(edu1.eduId)">
+            <img src="https://thumbs.dreamstime.com/b/delete-glyph-vector-line-icon-delete-icon-102291534.jpg"
+                 class="img-responsive" id="addS">
+          </button>
+          <button type="submit" class="pull-right" (click)="updateEdu(edu1.eduId)">
+            <img src="https://i.pinimg.com/564x/e4/47/e4/e447e462eff03304a902f15681754441.jpg"
+                 class="img-responsive" id="addS">
+          </button>
+          <h3> {{edu1.eduName}}</h3>
+          <h4>{{edu1.degree}}</h4>
+          <h5>{{edu1.field}}</h5>
+          <h6>{{edu1.eduStart}} - {{edu1.eduStop}}</h6>
+          <p style="font-style: italic; ">{{edu1.grade}}</p>
+        </li>
+      </ul>
+
+    </div>
+
   </div>
 </div>
