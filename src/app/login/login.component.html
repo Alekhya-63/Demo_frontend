@@ -1,34 +1,58 @@
 
 
-<div class="row backgroundimg" >
-  <br> <br><br>
-  <br>
-  <br>
+<div style="min-height: 200%; min-width: 100%; background-image: url('assets/images/Professional.jpg'); background-size: cover; ">
+  <br> <br><br><br><br><br><br>
 
 
-  <div class="container"  style="max-width: 600px; max-height: 600px; background-color: white;">
-    <h2>Login/Create</h2>
-    <form #formlogin="ngForm" (ngSubmit)="userLogin()">
+  <div class="container"  style="max-width: 500px; background-color: white;">
+    <h2 style="color : slateblue;">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
       <small class="text-danger">{{msg}}</small>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="user.emailId"  ngModel required #email="ngModel">
-        <small class="form-text text-muted" *ngIf="email.touched && !email.valid">Please enter your email address</small>
-      </div>
-      <div class="form-group">
-        <label for = "password">Password:</label>
-        <input type="password" id="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password" ngModel required #password="ngModel">
-        <small class="form-text text-muted" *ngIf="password.touched && !password.valid">Please enter password</small>
 
+      <div class="form-group">
+        <label for="email" >Email id </label>
+        <input
+          type="text" id="email"
+          formControlName="email"
+          class="form-control"
+          name="email">
+        <span
+          *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+          class="help-block">Please enter your email address</span>
       </div>
+
+      <div class="form-group">
+        <label for="password" >Password </label>
+        <input
+          type="password" id="password"
+          formControlName="password"
+          class="form-control"
+          name="password">
+        <span
+          *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+          class="help-block">Please enter password</span>
+      </div>
+
       <div class="checkbox">
         <label><input type="checkbox" name="remember"> Remember me</label>
       </div>
-      <button [disabled]="formlogin.form.invalid" type="submit" class="btn btn-primary">Login</button>
+      <div class="wrap">
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+
+      </div>
+      <div style="display: flex; ">
+        <p style="margin-left: 60%;"> No account ? </p>
+        <p  style=" color: slateblue; text-decoration: underline;"  [routerLink]="['/registration']">
+          Register here</p>
+      </div>
+
     </form>
-    <button class="btn btn-primary" style="margin-left: 80%"  [routerLink]="['/registration']">Create Account</button>
-    <hr>
+
+
   </div>
+  <br><br><br><br><br><br><br><br><br>
+
+
 </div>
 
 

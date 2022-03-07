@@ -19,4 +19,8 @@ export class ProfileService {
   profileEdit(id: number, profile: Profile ) {
     return this.http.put<any>("http://localhost:9381/update-profile/"+id, profile);
   }
+
+  getProfileData(id: number) {
+    return this.http.get<any>("http://localhost:9381/display-profile/"+id);
+  }
 }

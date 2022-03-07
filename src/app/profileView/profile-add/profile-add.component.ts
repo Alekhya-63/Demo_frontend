@@ -23,12 +23,15 @@ export class ProfileAddComponent implements OnInit {
     let title = '';
     let about = '';
     let location = '';
-
+    let phoneNo = '';
+    let email = '';
     this.formProfile = new FormGroup({
       'profileName' : new FormControl(name, [Validators.required]),
       'profileTitle' : new FormControl(title, [Validators.required]),
       'profileAbout' : new FormControl(about, [Validators.required]),
       'profileLocation' : new FormControl(location, [Validators.required]),
+      'profilePhone' : new FormControl(phoneNo, [Validators.required]),
+      'profileEmail' : new FormControl(email, [Validators.required]),
     })
   }
 
@@ -39,8 +42,10 @@ export class ProfileAddComponent implements OnInit {
     let title = this.formProfile.value['profileTitle'];
     let about = this.formProfile.value['profileAbout'];
     let location = this.formProfile.value['profileLocation'];
+    let phoneNo = this.formProfile.value['profilePhone'];
+    let email = this.formProfile.value['profileEmail'];
 
-    this.profile = new Profile(name, title, about, location);
+    this.profile = new Profile(name, title, about, location, phoneNo, email);
 
     console.log(this.profile);
     // @ts-ignore

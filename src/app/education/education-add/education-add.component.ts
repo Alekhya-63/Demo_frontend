@@ -44,13 +44,13 @@ export class EducationAddComponent implements OnInit {
     this.service.addEdu(userData.id, this.edu).subscribe(
       data => {
         console.log("Education added!!");
-        this.router.navigate(['../education'],{relativeTo: this.route});
+        this.router.navigate(['../home'],{relativeTo: this.route});
       }
     )
 
   }
 
   goBack() {
-    this.router.navigate(['../education'],{relativeTo: this.route});
+    this.router.navigate(['../home'],{relativeTo: this.route});
   }
 }

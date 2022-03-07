@@ -27,7 +27,7 @@ export class SkillsAddComponent implements OnInit {
   }
 
   onAddskill() {
-   // console.log( this.route.snapshot);
+    console.log( this.route.snapshot);
     let userData = JSON.parse(localStorage.getItem('userName'));
 console.log( this.route.snapshot);
     // @ts-ignore
@@ -42,7 +42,6 @@ console.log( this.route.snapshot);
       error => {
         console.log("denied");
         this.msg="Invalid, please enter valid details";
-       // this.router.navigate(['../'],{relativeTo: this.route});
       }
 
     )

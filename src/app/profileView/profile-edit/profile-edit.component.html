@@ -55,6 +55,30 @@
                 *ngIf="!formEditProfile.get('profileLocation').valid && formEditProfile.get('profileLocation').touched"
                 class="help-block">Enter location details!</span>
             </div>
+
+            <div class="form-group">
+              <label for="profilePhone" >Phone No </label>
+              <input
+                type="tel" id="profilePhone"
+                formControlName="profilePhone"
+                class="form-control"
+                name="profilePhone">
+              <span
+                *ngIf="!formEditProfile.get('profilePhone').valid && formEditProfile.get('profilePhone').touched"
+                class="help-block">Enter Phone No!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="profileEmail" >Email ID </label>
+              <input
+                type="text" id="profileEmail"
+                formControlName="profileEmail"
+                class="form-control"
+                name="profileEmail">
+              <span
+                *ngIf="!formEditProfile.get('profileEmail').valid && formEditProfile.get('profileEmail').touched"
+                class="help-block">Enter Phone No!</span>
+            </div>
           </div>
         </div>
 

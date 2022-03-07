@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
-  user = new User();
+  user : User;
   msg='';
   constructor(private fb: FormBuilder, private service : RegistrationService, private router : Router) { }
 
@@ -21,43 +21,29 @@ export class RegisterComponent implements OnInit {
     let pass='';
     // @ts-ignore
     this.registerForm = new FormGroup({
-      email: new FormControl(name, [Validators.required,Validators.email] ),
-      password: new FormControl(pass,[Validators.required])
+      'email': new FormControl(name, [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')] ),
+      'password': new FormControl(pass,[Validators.required, Validators.minLength(6)])
     })
   }
 
   userRegistration() {
 
    // this.user = Object.assign(this.user, this.registerForm.value);
-
+    let email = this.registerForm.value['email'];
+    let pass = this.registerForm.value['password'];
+    this.user = new User(email, pass);
     this.service.registerUser(this.user).subscribe(
       data => {
         console.log("Accepted");
         this.msg="Created account successfully";
-
-
-       // this.addUser(this.user);
-
       },
       error =>{
         console.log("denied");
-        this.msg=error.error;
+        this.msg="Email id already exists";
       }
     )
 
-   // this.registerForm.reset();
+   this.registerForm.reset();
   }
 
-
-  // addUser(user: User) {
-  //   let users = [];
-  //   if(localStorage.getItem('User')){
-  //     users = JSON.parse(localStorage.getItem('User'));
-  //     users = [user, ...users];
-  //   }
-  //   else{
-  //     users = [user];
-  //   }
-  //   localStorage.setItem('User', JSON.stringify(users));
-  // }
 }

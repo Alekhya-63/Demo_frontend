@@ -1,68 +1,44 @@
-<!--<div style="min-width: 100%;min-height: 600%;">-->
-<!--  <br>-->
-<!--  <br>-->
-<!--  <br>-->
-<!--  <br>-->
-<!--  <br>-->
-<!--  <br>-->
-<!--  <br>-->
 
-
-<!--<div class="container" style="max-width: 500px; background-color: white;">-->
-<!--  <h2>Create account</h2>-->
-<!--  <form [formGroup]="registerForm" (ngSubmit)="userRegistration()">-->
-<!--    <small class="text-danger">{{msg}}</small>-->
-<!--    <div class="form-group col-12">-->
-<!--      <label  class="form-label" >Email:</label>-->
-<!--      <input type="text" class="form-control"   formControlName="email" placeholder="Enter email" name="email" >-->
-<!--      <span class="help-block" *ngIf="!registerForm.get('email').valid &&-->
-<!--       registerForm.get('email').touched" class="error-block">-->
-<!--        <span *ngIf="registerForm.get('email').hasError('required')"> enter an email</span>-->
-<!--        <span *ngIf="registerForm.get('email').hasError('email')">Please enter a valid email</span>-->
-<!--      </span>-->
-<!--    </div>-->
-<!--    <div class="form-group col-12">-->
-<!--      <label  class="form-label" >Password:</label>-->
-<!--      <input type="password" class="form-control" formControlName="password" placeholder="Enter password" name="password" >-->
-<!--      <span class="help-block" *ngIf="!registerForm.get('password').valid &&-->
-<!--       registerForm.get('password').touched" class="error-block">Please enter a valid password</span>-->
-<!--    </div>-->
-
-<!--    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Submit</button>-->
-<!--  </form>-->
-<!--  <button class="btn btn-primary" style="margin-left: 80%" [routerLink]="['']">Login</button>-->
-<!--<hr>-->
-<!--</div>-->
-<!--</div>-->
-
-
-<div style="min-width: 100%;min-height: 600%;">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
+<div style="min-width: 100%;min-height: 600%;" style="min-height: 200%; min-width: 100%; background-image: url('assets/images/Professional.jpg'); background-size: cover; ">
+  <br><br><br><br><br><br><br><br><br>
 
   <div class="container" style="max-width: 500px; background-color: white;">
-    <h2>Create account</h2>
-    <form #formregister="ngForm" (ngSubmit)="userRegistration()">
+    <h2 style="color : slateblue">Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="userRegistration()">
       <small class="text-danger">{{msg}}</small>
       <div class="form-group">
-        <input type="email" id="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="user.emailId" ngModel required #email="ngModel">
-        <small class="form-text text-muted" *ngIf="email.touched && !email.valid">Please enter your email address</small>
+        <label for="email" >Email id </label>
+        <input
+          type="text" id="email"
+          formControlName="email"
+          class="form-control"
+          name="email">
+        <span
+          *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched"
+          class="help-block">Please enter your email address</span>
       </div>
-      <div class="form-group">
-          <label for = "password">Password:</label>
-        <input type="password" id="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password" ngModel required #password="ngModel">
-        <small class="form-text text-muted" *ngIf="password.touched && !password.valid">Please enter password</small>
 
+      <div class="form-group">
+        <label for="password" >Password </label>
+        <input
+          type="password" id="password"
+          formControlName="password"
+          class="form-control"
+          name="password">
+        <span
+          *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched"
+          class="help-block">Please enter password</span>
       </div>
-      <button [disabled]="formregister.form.invalid" type="submit" class="btn btn-primary">Submit</button>
+      <div class="wrap">
+        <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <div style="display: flex; ">
+        <p style="margin-left: 50%;"> Already have an account ? </p>
+        <p  style=" color: slateblue; text-decoration: underline;"  [routerLink]="['']">
+          Login here</p>
+      </div>
     </form>
-    <button class="btn btn-primary" style="margin-left: 80%" [routerLink]="['']">Login</button>
-    <hr>
+
   </div>
+  <br><br><br><br><br><br><br><br>
 </div>

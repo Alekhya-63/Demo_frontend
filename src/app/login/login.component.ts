@@ -13,9 +13,9 @@ import { ReactiveFormsModule } from "@angular/forms";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  myimage : string = "assets/images/Professional_background.jpeg"
   loginForm: FormGroup;
-  user = new User();
+  user : User;
   msg='';
   id : number;
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private service : RegistrationService, private router: Router) { }
@@ -25,12 +25,16 @@ export class LoginComponent implements OnInit {
     let pass='';
     // @ts-ignore
     this.loginForm = new FormGroup({
-      email: new FormControl(name, [Validators.required,Validators.email] ),
-      password: new FormControl(pass,[Validators.required])
+      'email': new FormControl(name, [Validators.required,Validators.email] ),
+      'password': new FormControl(pass,[Validators.required])
     })
   }
 
   userLogin(){
+
+    let email = this.loginForm.value['email'];
+    let pass = this.loginForm.value['password'];
+    this.user = new User(email, pass);
     this.service.loginUser(this.user).subscribe(
       data => {
         console.log("Accepted");

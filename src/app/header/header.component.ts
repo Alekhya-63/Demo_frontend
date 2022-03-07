@@ -1,7 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {NgModel} from "@angular/forms";
-import {NgIf} from "@angular/common";
-import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RegistrationService} from "../registration.service";
 import {User} from "../user";
@@ -42,5 +39,21 @@ export class HeaderComponent implements OnInit{
   logout() {
     window.alert("Logged out successfully");
     this.router.navigateByUrl("/");
+  }
+
+  onProfile() {
+    document.getElementById("profile").scrollIntoView({behavior:"smooth"});
+  }
+
+  onExp() {
+    document.getElementById("experience").scrollIntoView({behavior:"smooth"});
+  }
+
+  onEdu() {
+    document.getElementById("education").scrollIntoView({behavior:"smooth"});
+  }
+
+  onSkills() {
+    document.getElementById("skills").scrollIntoView({behavior:"smooth"});
   }
 }

@@ -35,8 +35,7 @@ export class EducationComponent implements OnInit {
 
     this.service.eduDelete(userData.id,eduId).subscribe(
       data =>  {
-        console.log("deleted skill");
-        //this.skill=data;
+        console.log("deleted education");
         this.ngOnInit();
       }
     )

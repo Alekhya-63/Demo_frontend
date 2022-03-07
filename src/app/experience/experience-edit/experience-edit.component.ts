@@ -18,21 +18,22 @@ export class ExperienceEditComponent implements OnInit {
               private service: ExperienceService) { }
 
   ngOnInit(): void {
-    let name = '';
-    let role = '';
-    let empType = '';
-    let startDate = '';
-    let stopDate;
-    let des = '';
 
+    let userData = JSON.parse(localStorage.getItem('userName'));
+
+this.service.getExpData(userData.id, this.route.snapshot.params.id).subscribe(
+  (result) => {
     this.formEditExp = new FormGroup({
-      'expName' : new FormControl(name, [Validators.required]),
-      'expRole' : new  FormControl(role, [Validators.required]),
-      'expType' : new FormControl(empType, [Validators.required]),
-      'expStart' : new FormControl(startDate, [Validators.required]),
-      'expStop' : new FormControl(stopDate, [Validators.required]),
-      'expDes' : new FormControl(des, [Validators.required]),
+      'expName' : new FormControl(result['companyName'], [Validators.required]),
+      'expRole' : new  FormControl(result['role'], [Validators.required]),
+      'expType' : new FormControl(result['empType'], [Validators.required]),
+      'expStart' : new FormControl(result['startDate'], [Validators.required]),
+      'expStop' : new FormControl(result['stopDate'], [Validators.required]),
+      'expDes' : new FormControl(result['description'], [Validators.required]),
     })
+  }
+)
+
   }
 
   onEditExp() {

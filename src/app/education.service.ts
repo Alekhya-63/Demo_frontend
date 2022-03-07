@@ -24,4 +24,8 @@ export class EducationService {
   editEdu(id: number, eid: number, edu: Education){
     return this.http.put<any>("http://localhost:9381/edu-edit/"+id+"/"+eid,edu);
   }
+
+  getEduData(id: number, eid: number) {
+    return this.http.get<any>("http://localhost:9381/display-edu-byId/"+id+"/"+eid);
+  }
 }

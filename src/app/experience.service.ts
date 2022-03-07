@@ -25,4 +25,8 @@ export class ExperienceService {
   expEdit(id: number, eid: number, Exp: Experience) {
     return this.http.put<any>("http://localhost:9381/edit-exp/"+id+"/"+eid, Exp);
   }
+
+  getExpData(id: any, eid: any) {
+    return this.http.get<any>("http://localhost:9381/display-exp-byid/"+id+"/"+eid);
+  }
 }

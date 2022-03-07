@@ -17,22 +17,23 @@ export class EducationEditComponent implements OnInit {
               private service: EducationService) { }
 
   ngOnInit(): void {
-    let name = '';
-    let degree = '';
-    let field = '';
-    let start = '';
-    let stop = '';
-    let grade = '';
 
-    this.formEditEdu = new FormGroup({
-      'eduName' : new FormControl(name, [Validators.required]),
-      'eduDegree' : new FormControl(degree, [Validators.required]),
-      'eduField' : new FormControl(field, [Validators.required]),
-      'eduStart' : new FormControl(start, [Validators.required]),
-      'eduStop' : new FormControl(stop, [Validators.required]),
-      'eduGrade' : new FormControl(grade, [Validators.required]),
+    let userData = JSON.parse(localStorage.getItem('userName'));
 
-    })
+   this.service.getEduData(userData.id,  this.route.snapshot.params.id).subscribe(
+     (result) => {
+       this.formEditEdu = new FormGroup({
+         'eduName' : new FormControl(result['eduName'], [Validators.required]),
+         'eduDegree' : new FormControl(result['degree'], [Validators.required]),
+         'eduField' : new FormControl(result['field'], [Validators.required]),
+         'eduStart' : new FormControl(result['eduStart'], [Validators.required]),
+         'eduStop' : new FormControl(result['eduStop'], [Validators.required]),
+         'eduGrade' : new FormControl(result['grade'], [Validators.required]),
+
+       })
+     }
+   )
+
   }
 
   onEditEdu() {
@@ -45,14 +46,13 @@ export class EducationEditComponent implements OnInit {
     this.service.editEdu(userData.id, eid, this.edu).subscribe(
       data => {
         console.log("Education edited!!");
-        this.router.navigate(['../../education'],{relativeTo: this.route});
+        this.router.navigate(['../../home'],{relativeTo: this.route});
       }
     )
 
   }
 
   goBack() {
-    this.router.navigate(['../../education'],{relativeTo: this.route});
-
+    this.router.navigate(['../../home'],{relativeTo: this.route});
   }
 }

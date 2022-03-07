@@ -17,17 +17,21 @@ export class ProfileEditComponent implements OnInit {
               private service: ProfileService) { }
 
   ngOnInit(): void {
-    let name = '';
-    let title = '';
-    let about = '';
-    let location = '';
 
-    this.formEditProfile = new FormGroup({
-      'profileName' : new FormControl(name, [Validators.required]),
-      'profileTitle' : new FormControl(title, [Validators.required]),
-      'profileAbout' : new FormControl(about, [Validators.required]),
-      'profileLocation' : new FormControl(location, [Validators.required]),
-    })
+    let userData = JSON.parse(localStorage.getItem('userName'));
+  this.service.getProfileData(userData.id).subscribe(
+    (result) => {
+      this.formEditProfile = new FormGroup({
+        'profileName' : new FormControl(result['name'], [Validators.required]),
+        'profileTitle' : new FormControl(result['title'], [Validators.required]),
+        'profileAbout' : new FormControl(result['about'], [Validators.required]),
+        'profileLocation' : new FormControl(result['location'], [Validators.required]),
+        'profilePhone' : new FormControl(result['phoneNo'], [Validators.required]),
+        'profileEmail' : new FormControl(result['email'], [Validators.required]),
+      })
+    }
+  )
+
   }
 
   onEditProfile() {
@@ -37,8 +41,10 @@ export class ProfileEditComponent implements OnInit {
     let title = this.formEditProfile.value['profileTitle'];
     let about = this.formEditProfile.value['profileAbout'];
     let location = this.formEditProfile.value['profileLocation'];
+    let phoneNo = this.formEditProfile.value['profilePhone'];
+    let email = this.formEditProfile.value['profileEmail'];
 
-    this.profile = new Profile(name, title, about, location);
+    this.profile = new Profile(name, title, about, location, phoneNo, email);
 
     console.log(this.profile);
     // @ts-ignore
